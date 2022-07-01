@@ -4,7 +4,7 @@
 fullnameOverride: k8sdemo
 replicaCount: 1
 image:
-  repository: cloudjia/k8sdemo
+  repository: k8sdemo
   tag: latest
   pullPolicy: IfNotPresent
 imagePullSecrets: []
@@ -23,6 +23,23 @@ deployment:
 
 probes:
   enabled: false
+
+ingress:
+  enabled: true
+  annotations: {}
+    # kubernetes.io/tls-acme: "true"
+  # hosts:
+  #   - chart-example.local
+  tls: []
+    # - secretName: chart-example-tls
+    #   hosts:
+    #     - chart-example.local
+  rules:
+    - host: "*.cloudtest.com"
+      backends:
+        - path: /test
+          serviceName: k8sdemo.helmdemo
+          servicePort: 8093
 
 secrets: {}
   # Optionally specify a set of secret objects whose values
