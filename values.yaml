@@ -4,7 +4,7 @@
 fullnameOverride: k8sdemo
 replicaCount: 1
 image:
-  repository: k8sdemo
+  repository: cloudjia/k8sdemo
   tag: latest
   pullPolicy: IfNotPresent
 imagePullSecrets: []
