@@ -15,10 +15,10 @@ imagePullSecrets: []
   # This uses credentials from secret "myRegistryKeySecretName".
   # - name: myRegistryKeySecretName
 service:
-  type: NodePort
-  port: 80
+  type: ClusterIP
+  port: 8088
   targetPort: 80
-  nodePort: 30001
+
 
 deployment:
   containerPort: 80
